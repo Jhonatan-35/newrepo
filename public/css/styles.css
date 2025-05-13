@@ -1,6 +1,235 @@
-/******* Change Box Model ***************/
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --primary-color:#0077b6;
+    --secunddary-color:#36454f;
+    --terceary-color: #1DA1F2;
+}
+
+.siteName{
+ 
+  flex: 2;
+  color: var(--primary-color);
+  font-weight: 603;
+}
+
+#tools{
+  align-content: center;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+
+}
+
+.siteName a, #tools a{
+  color:var(--secunddary-color);;
+}
+header{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-around;
+  height: 90px;
+}
+a{
+  text-decoration: none;
+  color:#fff;
+}
+nav ul li{
+  color: #fff;
+}
+
+nav ul{
+  justify-content: space-between;
+  display: flex;
+  list-style-type: none;
+
+}
+nav{
+  padding: 10px;
+  background-color:var(--primary-color);
+}
+
+main h1{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.event img{
+  display: block;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+
+}
+
+.mainher{
+  background-color: rgba(255, 255, 255, 0.34);
+  position: absolute;
+  font-size: 1rem;
+  top: 200px;
+  left: 6px;
+  color: black;
+  
+}
+
+.mainher button{
+  background-color: var(--terceary-color);
+  border: none;
+  height: 31px;
+  cursor: pointer;
+  width: 80px;
+  font-size: 9px;
+  color: #000; 
+  font-weight: bold;
+  
+
+}
+
+.dev, .scyns-dates{
+  margin-top: 30px;
+}
+
+.list{
+  list-style-type: disc ;
+  line-height: 2em;
+  font-size: small;
+  padding-left: 20px;
+}
+.scyn{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 5px;
+  gap: 10px;
+}
+li::marker{
+  font-size: 15px;
+}
+
+
+
+
+.adveratary>div{
+  display: flex;
+  justify-content: center;
+  background-color: var(--terceary-color);
+  height: 80px;
+  padding: 10px;
+}
+
+.adveratary a{
+  color: blue;
+  text-decoration: underline;
+  font-size: small;
+}
+
+.adveratary{
+  text-align: center;
+}
+
+footer{
+  font-size: 1rem;
+  padding: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+
+.dev-alec{
+  display: grid;
+  grid-template-areas: "scyns dev" ;
+  grid-template-columns: repeat(2 ,1fr);
+  gap: 21px;
+}
+  .mainher{
+  top:301px ;
+  left: 10px;
+  width: 200px;
+  height: 150px;
+  font-size: large;
+}
+.scyns-dates{
+  grid-area: scyns;
+}
+.dev{
+  grid-area: dev;
+}
+
+.list, div .scyn{
+  margin-top: 20px;
+}
+
+.list{
+  line-height: 3em;
+  font-size: 14px;
+}
+}
+
+@media  screen and (min-width: 1200px) {
+  body{
+    background-position: center; 
+    background-image: url("../images/site/small_check.jpg");  
+    background-repeat: repeat;
+    background-size: cover;
+    padding: 20px 0 20px 0 ;
+    margin: 0;
+    min-height: 100vh; 
+  }
+
+  #wrapper{
+    border: 5px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: white; 
+    margin: auto; 
+    width: 900px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3); 
+  }
+
+  .event img{
+    width: 70%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+ button{
+    width: 153px !important;
+    margin-top: 30px;
+    font-size: 15px !important;
+    width: 153px !important;
+    height: 60px !important;
+  }
+
+  h1{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+
+  .mainher{
+    top:270px ;
+    left: 370px;
+    height: 203px;
+    width: 251px;
+    font-size: large;
+    padding: 10px;
+}
+
+
+  .dev-alec{
+    padding: 23px;
+  }
 }
