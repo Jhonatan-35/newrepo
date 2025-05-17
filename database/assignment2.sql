@@ -24,13 +24,13 @@ WHERE account_id =1;
  SET inv_description = REPLACE(inv_description,'small interiors','huge interior')
  WHERE inv_id = 10;
 
---Select query 4
+--Select query 5
 SELECT inv_make ,inv_model,classification_name
 FROM public.inventory
 INNER JOIN public.classification ON inventory.classification_id = classification.classification_id
 WHERE classification.classification_id =2;
 
---Update again query 5
+--Update again query 6
 UPDATE public.inventory
 SET inv_image =REPLACE(inv_image,'/image','/images/vehicles'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/image','images/vehicles/');
