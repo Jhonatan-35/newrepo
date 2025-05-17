@@ -1,4 +1,4 @@
---assignment week02 Task Part one
+--Assignment week02 Task Part one
 SELECT *FROM public.account;
 
 --Insert query 01
