@@ -60,6 +60,13 @@ nav{
   padding: 10px;
   background-color:var(--primary-color);
 }
+.nav:hover,
+.nav:active {
+color: white;
+background-color: black;
+transform: scale(1.2);
+transition: transform 0.3s ease-in-out;
+}
 
 main h1{
   margin-top: 15px;
