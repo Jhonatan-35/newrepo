@@ -1,185 +1,196 @@
-
-*,
+/******* Change Box Model ***************/
+/* *,
 *:before,
 *:after {
   box-sizing: border-box;
-}
+} */
+
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
 }
-:root{
-    --primary-color:#0077b6;
-    --secunddary-color:#36454f;
-    --terceary-color: #1DA1F2;
+
+body{
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  align-items: center;
+  height: 90px;
 }
 
 .siteName{
- 
   flex: 2;
-  color: var(--primary-color);
-  font-weight: 603;
+  font-size: xx-large;
+  font-weight: 600;
+  color: #36454F;
 }
 
 #tools{
-  align-content: center;
   display: flex;
   flex: 1;
+  align-content: center;
   justify-content: flex-end;
-
 }
 
 .siteName a, #tools a{
-  color:var(--secunddary-color);;
+  color:#36454F;;
 }
-header{
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  justify-content: space-around;
-  height: 90px;
-}
+
 a{
   text-decoration: none;
-  color:#fff;
-}
-nav ul li{
-  color: #fff;
+  color: azure;
 }
 
 nav ul{
-  justify-content: space-between;
   display: flex;
   list-style-type: none;
-
+  justify-content: space-between;
 }
+
+nav ul li{
+  color: azure;
+}
+
 nav{
   padding: 10px;
-  background-color:var(--primary-color);
-}
-.nav:hover,
-.nav:active {
-color: white;
-background-color: black;
-transform: scale(1.2);
-transition: transform 0.3s ease-in-out;
+  background-color: #36454F;
 }
 
-main h1{
+h1{
   margin-top: 15px;
   margin-bottom: 15px;
-  font-size: 2rem;
+  font-size: large;
 }
 
-.event img{
+
+
+.hero img{
   display: block;
   width: 100%;
-  margin-right: 0;
   margin-left: 0;
-
+  margin-right: 0 ;
 }
 
-.mainher{
-  background-color: rgba(255, 255, 255, 0.34);
+.hero-text{
   position: absolute;
-  font-size: 1rem;
   top: 200px;
-  left: 6px;
-  color: black;
-  
+  left: 5px;
+  font-size: x-small;
+  color: #1DA1F2;
+  background-color: rgba(255, 255, 255, 0.34);
 }
 
-.mainher button{
-  background-color: var(--terceary-color);
+.hero-text button{
+  /* background-image: url("../images/site/own_today.png"); */
   border: none;
-  height: 31px;
-  cursor: pointer;
+  height: 30px;
   width: 80px;
-  font-size: 9px;
+  background-color: #1DA1F2;
   color: #000; 
   font-weight: bold;
-  
-
+  cursor: pointer;
+  font-size: 9px;
 }
 
-.dev, .scyns-dates{
+/* .hero-text button{
+  background-image: url("../images/site/own_today.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  height: 40px;
+  border: none;
+  height: 40px;
+  width: 110px;
+  color: rgba(255, 255, 255, 0);
+  font-weight: bold;
+  cursor: pointer;
+} */
+
+
+.mid, .upgrade-grid{
   margin-top: 30px;
 }
 
-.list{
-  list-style-type: disc ;
+.specs{
+  list-style-type: disc !important;
   line-height: 2em;
   font-size: small;
   padding-left: 20px;
 }
-.scyn{
+
+li::marker{
+  font-size: 15px;
+}
+
+.upgrades{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 5px;
   gap: 10px;
 }
-li::marker{
-  font-size: 15px;
-}
 
 
-
-
-.adveratary>div{
+.card-container>div{
   display: flex;
   justify-content: center;
-  background-color: var(--terceary-color);
+  background-color: #1DA1F2;
   height: 80px;
   padding: 10px;
 }
 
-.adveratary a{
+.card-container a{
   color: blue;
   text-decoration: underline;
   font-size: small;
 }
 
-.adveratary{
+.card-container{
   text-align: center;
 }
 
 footer{
-  font-size: 1rem;
+  font-size: small;
   padding: 10px;
 }
 
 
 @media screen and (min-width: 768px) {
-
-
-.dev-alec{
-  display: grid;
-  grid-template-areas: "scyns dev" ;
-  grid-template-columns: repeat(2 ,1fr);
-  gap: 21px;
-}
-  .mainher{
-  top:301px ;
+  .hero-text{
+  top:300px !important;
   left: 10px;
   width: 200px;
   height: 150px;
   font-size: large;
 }
-.scyns-dates{
-  grid-area: scyns;
-}
-.dev{
-  grid-area: dev;
+
+.mid-container{
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr);
+  grid-template-areas: "upgrade specs" !important;
+  gap: 20px;
 }
 
-.list, div .scyn{
+.mid{
+  grid-area: specs;
+}
+
+.upgrade-grid{
+  grid-area: upgrade;
+}
+
+.specs, div .upgrades{
   margin-top: 20px;
 }
 
-.list{
+.specs{
   line-height: 3em;
   font-size: 14px;
 }
@@ -187,56 +198,149 @@ footer{
 
 @media  screen and (min-width: 1200px) {
   body{
-    background-position: center; 
-    background-image: url("../images/site/small_check.jpg");  
+    background-image: url("../images/site/small_check.jpg");
+    background-size: cover;       
+    background-position: center;  
     background-repeat: repeat;
-    background-size: cover;
     padding: 20px 0 20px 0 ;
+    min-height: 100vh; /* Ensures body takes at least full viewport height */
     margin: 0;
-    min-height: 100vh; 
   }
 
   #wrapper{
-    border: 5px solid var(--primary-color);
+    border: 5px solid #1DA1F2;
     border-radius: 10px;
+    width: 900px;
     background-color: white; 
     margin: auto; 
-    width: 900px;
     box-shadow: 0 0 15px rgba(0,0,0,0.3); 
   }
 
-  .event img{
+  .hero img{
     width: 70%;
     display: block;
-    margin-right: auto;
     margin-left: auto;
-  }
- button{
-    width: 153px !important;
-    margin-top: 30px;
-    font-size: 15px !important;
-    width: 153px !important;
-    height: 60px !important;
+    margin-right: auto;
   }
 
   h1{
   margin-top: 15px;
   margin-bottom: 15px;
-  font-size: 2rem;
+  font-size: xx-large;
 }
 
 
-  .mainher{
-    top:270px ;
+  .hero-text{
+    top:270px !important;
     left: 370px;
-    height: 203px;
-    width: 251px;
+    width: 250px;
+    height: 200px;
     font-size: large;
     padding: 10px;
 }
 
-
-  .dev-alec{
-    padding: 23px;
+  button{
+    margin-top: 30px;
+    font-size: 15px !important;
+    width: 150px !important;
+    height: 60px !important;
   }
+
+  .mid-container{
+    padding: 20px;
+  }
+}
+
+/* New styles */
+
+.vehicle-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.vehicle-detail img {
+  max-width: 100%;
+  width: 400px;
+}
+
+.vehicle-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+
+/* Container becomes a responsive grid */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each card */
+#inv-display li {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+
+#inv-display li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Image at top */
+#inv-display li img {
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Card content */
+#inv-display li .namePrice {
+  padding: 1rem;
+  flex: 1;               /* stretch to fill */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#inv-display li .namePrice h2 {
+  margin: 0 0 .5rem;
+  font-size: 1.1rem;
+}
+
+#inv-display li .namePrice span {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+/* Make “View details” links easy to click */
+#inv-display li .namePrice a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.error-trigger {
+  color: blue;        /* Default link blue color */
+  text-decoration: underline;  /* Underline */
+  cursor: pointer;    /* Pointer cursor on hover */
+  background: transparent; /* Ensure no background color */
+}
+
+/* Optional: change color on hover for better UX */
+.error-trigger:hover,
+.error-trigger:focus {
+  color: darkblue;
+  text-decoration: none;
 }

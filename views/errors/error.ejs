@@ -1,0 +1,9 @@
+<main>
+  <h1><%= title || "Oops!" %></h1>
+  <p><%= message %></p>
+  <% if (title == 404) { %>
+    <p>Looks like this page wandered off... maybe it's hiding with your car keys?</p>
+  <% } else { %>
+    <p>Try refreshing or <a href="/">go home</a>.</p>
+  <% } %>
+</main>
