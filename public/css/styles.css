@@ -1,16 +1,14 @@
-/******* Change Box Model ***************/
-/* *,
-*:before,
-*:after {
-  box-sizing: border-box;
-} */
-
+:root{
+    --primary-color:#0077b6;
+    --secunddary-color:#36454f;
+    --terceary-color: #1DA1F2;
+}
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat";
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -29,7 +27,7 @@ header{
   flex: 2;
   font-size: xx-large;
   font-weight: 600;
-  color: #36454F;
+  color:var(--primary-color);
 }
 
 #tools{
@@ -40,7 +38,7 @@ header{
 }
 
 .siteName a, #tools a{
-  color:#36454F;;
+  color:var(--secunddary-color);
 }
 
 a{
@@ -60,8 +58,9 @@ nav ul li{
 
 nav{
   padding: 10px;
-  background-color: #36454F;
+  background-color: var(--primary-color);
 }
+
 
 h1{
   margin-top: 15px;
@@ -71,55 +70,41 @@ h1{
 
 
 
-.hero img{
+.event img{
   display: block;
   width: 100%;
   margin-left: 0;
   margin-right: 0 ;
 }
 
-.hero-text{
+.mainher{
   position: absolute;
   top: 200px;
   left: 5px;
   font-size: x-small;
-  color: #1DA1F2;
+  color: black;
   background-color: rgba(255, 255, 255, 0.34);
 }
 
-.hero-text button{
-  /* background-image: url("../images/site/own_today.png"); */
+.mainher button{
+
   border: none;
   height: 30px;
   width: 80px;
-  background-color: #1DA1F2;
+  background-color: var(--terceary-color);
   color: #000; 
   font-weight: bold;
   cursor: pointer;
   font-size: 9px;
 }
 
-/* .hero-text button{
-  background-image: url("../images/site/own_today.png"); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
-  height: 40px;
-  border: none;
-  height: 40px;
-  width: 110px;
-  color: rgba(255, 255, 255, 0);
-  font-weight: bold;
-  cursor: pointer;
-} */
 
 
-.mid, .upgrade-grid{
+.dev, .scyns-dates{
   margin-top: 30px;
 }
 
-.specs{
+.list{
   list-style-type: disc !important;
   line-height: 2em;
   font-size: small;
@@ -130,7 +115,7 @@ li::marker{
   font-size: 15px;
 }
 
-.upgrades{
+.scyn{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 5px;
@@ -138,21 +123,21 @@ li::marker{
 }
 
 
-.card-container>div{
+.adveratary>div{
   display: flex;
   justify-content: center;
-  background-color: #1DA1F2;
+  background-color: var(--terceary-color);
   height: 80px;
   padding: 10px;
 }
 
-.card-container a{
+.adveratary a{
   color: blue;
   text-decoration: underline;
   font-size: small;
 }
 
-.card-container{
+.adveratary{
   text-align: center;
 }
 
@@ -163,7 +148,7 @@ footer{
 
 
 @media screen and (min-width: 768px) {
-  .hero-text{
+  .mainher{
   top:300px !important;
   left: 10px;
   width: 200px;
@@ -171,26 +156,26 @@ footer{
   font-size: large;
 }
 
-.mid-container{
+.dev-alec{
   display: grid;
   grid-template-columns: repeat(2 ,1fr);
   grid-template-areas: "upgrade specs" !important;
   gap: 20px;
 }
 
-.mid{
+.dev{
   grid-area: specs;
 }
 
-.upgrade-grid{
+.scyns-dates{
   grid-area: upgrade;
 }
 
-.specs, div .upgrades{
+.list, div .scyn{
   margin-top: 20px;
 }
 
-.specs{
+.list{
   line-height: 3em;
   font-size: 14px;
 }
@@ -203,12 +188,12 @@ footer{
     background-position: center;  
     background-repeat: repeat;
     padding: 20px 0 20px 0 ;
-    min-height: 100vh; /* Ensures body takes at least full viewport height */
+    min-height: 100vh; 
     margin: 0;
   }
 
   #wrapper{
-    border: 5px solid #1DA1F2;
+    border: 5px solid var(--terceary-color);
     border-radius: 10px;
     width: 900px;
     background-color: white; 
@@ -216,7 +201,7 @@ footer{
     box-shadow: 0 0 15px rgba(0,0,0,0.3); 
   }
 
-  .hero img{
+  .event img{
     width: 70%;
     display: block;
     margin-left: auto;
@@ -230,7 +215,7 @@ footer{
 }
 
 
-  .hero-text{
+  .mainher{
     top:270px !important;
     left: 370px;
     width: 250px;
@@ -246,12 +231,10 @@ footer{
     height: 60px !important;
   }
 
-  .mid-container{
+  .dev-alec{
     padding: 20px;
   }
 }
-
-/* New styles */
 
 .vehicle-detail {
   display: flex;
@@ -272,7 +255,6 @@ footer{
 }
 
 
-/* Container becomes a responsive grid */
 #inv-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -281,7 +263,7 @@ footer{
   list-style: none;
 }
 
-/* Each card */
+
 #inv-display li {
   background: #fff;
   border-radius: 0.5rem;
@@ -297,20 +279,26 @@ footer{
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Image at top */
+
 #inv-display li img {
   width: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-/* Card content */
+
 #inv-display li .namePrice {
   padding: 1rem;
-  flex: 1;               /* stretch to fill */
+  flex: 1;              
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.error-link:hover,
+.error-link:focus {
+  color: darkblue;
+  text-decoration: none;
 }
 
 #inv-display li .namePrice h2 {
@@ -320,27 +308,21 @@ footer{
 
 #inv-display li .namePrice span {
   font-weight: bold;
-  color: #2c3e50;
+  color: var(--secunddary-color);
   font-size: 1rem;
 }
 
-/* Make “View details” links easy to click */
+
 #inv-display li .namePrice a {
   text-decoration: none;
   color: inherit;
 }
 
 
-.error-trigger {
-  color: blue;        /* Default link blue color */
-  text-decoration: underline;  /* Underline */
-  cursor: pointer;    /* Pointer cursor on hover */
-  background: transparent; /* Ensure no background color */
+.error-link {
+  color: blue;        
+  text-decoration: underline;  
+  cursor: pointer;    
+  background: transparent; 
 }
 
-/* Optional: change color on hover for better UX */
-.error-trigger:hover,
-.error-trigger:focus {
-  color: darkblue;
-  text-decoration: none;
-}

@@ -7,6 +7,7 @@ async function getNav(req, res, next) {
     let data = await invModel.getClassifications()
     let list = "<ul>"
     list += '<li><a href="/" title="Home page">Home</a></li>'
+    console.log(data)
     data.rows.forEach((row) => {
         list += "<li>"
         list +=

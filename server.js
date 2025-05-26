@@ -60,7 +60,7 @@ app.use(async (err, req, res, next) => {
     : "Oh no! There was a crash. Maybe try a different route?"
 
   res.status(err.status || 500).render("errors/error", {
-    title: err.status || "505 Server Error",
+    title: err.status || " Server Error",
     message,
     nav,
   })
