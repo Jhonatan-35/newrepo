@@ -32,6 +32,6 @@ WHERE classification.classification_id =2;
 
 --Update again query 6
 UPDATE public.inventory
-SET inv_image =REPLACE(inv_image,'/image','/images/vehicles'),
-    inv_thumbnail = REPLACE(inv_thumbnail, '/image','images/vehicles/');
+SET inv_image =REPLACE(inv_image,'/images','/images/vehicles'),
+    inv_thumbnail = REPLACE(inv_thumbnail, '/images','images/vehicles/');
 
