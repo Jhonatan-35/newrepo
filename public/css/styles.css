@@ -1,14 +1,16 @@
-:root{
-    --primary-color:#0077b6;
-    --secunddary-color:#36454f;
-    --terceary-color: #1DA1F2;
-}
+/******* Change Box Model ***************/
+/* *,
+*:before,
+*:after {
+  box-sizing: border-box;
+} */
+
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
 }
 
 body{
@@ -27,7 +29,7 @@ header{
   flex: 2;
   font-size: xx-large;
   font-weight: 600;
-  color:var(--primary-color);
+  color: #36454F;
 }
 
 #tools{
@@ -38,7 +40,7 @@ header{
 }
 
 .siteName a, #tools a{
-  color:var(--secunddary-color);
+  color:#36454F;;
 }
 
 a{
@@ -58,9 +60,8 @@ nav ul li{
 
 nav{
   padding: 10px;
-  background-color: var(--primary-color);
+  background-color: #36454F;
 }
-
 
 h1{
   margin-top: 15px;
@@ -70,41 +71,55 @@ h1{
 
 
 
-.event img{
+.hero img{
   display: block;
   width: 100%;
   margin-left: 0;
   margin-right: 0 ;
 }
 
-.mainher{
+.hero-text{
   position: absolute;
   top: 200px;
   left: 5px;
   font-size: x-small;
-  color: black;
+  color: #1DA1F2;
   background-color: rgba(255, 255, 255, 0.34);
 }
 
-.mainher button{
-
+.hero-text button{
+  /* background-image: url("../images/site/own_today.png"); */
   border: none;
   height: 30px;
   width: 80px;
-  background-color: var(--terceary-color);
+  background-color: #1DA1F2;
   color: #000; 
   font-weight: bold;
   cursor: pointer;
   font-size: 9px;
 }
 
+/* .hero-text button{
+  background-image: url("../images/site/own_today.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  height: 40px;
+  border: none;
+  height: 40px;
+  width: 110px;
+  color: rgba(255, 255, 255, 0);
+  font-weight: bold;
+  cursor: pointer;
+} */
 
 
-.dev, .scyns-dates{
+.mid, .upgrade-grid{
   margin-top: 30px;
 }
 
-.list{
+.specs{
   list-style-type: disc !important;
   line-height: 2em;
   font-size: small;
@@ -115,7 +130,7 @@ li::marker{
   font-size: 15px;
 }
 
-.scyn{
+.upgrades{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 5px;
@@ -123,21 +138,21 @@ li::marker{
 }
 
 
-.adveratary>div{
+.card-container>div{
   display: flex;
   justify-content: center;
-  background-color: var(--terceary-color);
+  background-color: #1DA1F2;
   height: 80px;
   padding: 10px;
 }
 
-.adveratary a{
+.card-container a{
   color: blue;
   text-decoration: underline;
   font-size: small;
 }
 
-.adveratary{
+.card-container{
   text-align: center;
 }
 
@@ -148,7 +163,7 @@ footer{
 
 
 @media screen and (min-width: 768px) {
-  .mainher{
+  .hero-text{
   top:300px !important;
   left: 10px;
   width: 200px;
@@ -156,26 +171,26 @@ footer{
   font-size: large;
 }
 
-.dev-alec{
+.mid-container{
   display: grid;
   grid-template-columns: repeat(2 ,1fr);
   grid-template-areas: "upgrade specs" !important;
   gap: 20px;
 }
 
-.dev{
+.mid{
   grid-area: specs;
 }
 
-.scyns-dates{
+.upgrade-grid{
   grid-area: upgrade;
 }
 
-.list, div .scyn{
+.specs, div .upgrades{
   margin-top: 20px;
 }
 
-.list{
+.specs{
   line-height: 3em;
   font-size: 14px;
 }
@@ -188,12 +203,12 @@ footer{
     background-position: center;  
     background-repeat: repeat;
     padding: 20px 0 20px 0 ;
-    min-height: 100vh; 
+    min-height: 100vh; /* Ensures body takes at least full viewport height */
     margin: 0;
   }
 
   #wrapper{
-    border: 5px solid var(--terceary-color);
+    border: 5px solid #1DA1F2;
     border-radius: 10px;
     width: 900px;
     background-color: white; 
@@ -201,7 +216,7 @@ footer{
     box-shadow: 0 0 15px rgba(0,0,0,0.3); 
   }
 
-  .event img{
+  .hero img{
     width: 70%;
     display: block;
     margin-left: auto;
@@ -215,7 +230,7 @@ footer{
 }
 
 
-  .mainher{
+  .hero-text{
     top:270px !important;
     left: 370px;
     width: 250px;
@@ -231,10 +246,12 @@ footer{
     height: 60px !important;
   }
 
-  .dev-alec{
+  .mid-container{
     padding: 20px;
   }
 }
+
+/* New styles */
 
 .vehicle-detail {
   display: flex;
@@ -255,6 +272,7 @@ footer{
 }
 
 
+/* Container becomes a responsive grid */
 #inv-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -263,7 +281,7 @@ footer{
   list-style: none;
 }
 
-
+/* Each card */
 #inv-display li {
   background: #fff;
   border-radius: 0.5rem;
@@ -279,26 +297,20 @@ footer{
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-
+/* Image at top */
 #inv-display li img {
   width: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-
+/* Card content */
 #inv-display li .namePrice {
   padding: 1rem;
-  flex: 1;              
+  flex: 1;               /* stretch to fill */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.error-link:hover,
-.error-link:focus {
-  color: darkblue;
-  text-decoration: none;
 }
 
 #inv-display li .namePrice h2 {
@@ -308,20 +320,323 @@ footer{
 
 #inv-display li .namePrice span {
   font-weight: bold;
-  color: var(--secunddary-color);
+  color: #2c3e50;
   font-size: 1rem;
 }
 
-
+/* Make “View details” links easy to click */
 #inv-display li .namePrice a {
   text-decoration: none;
   color: inherit;
 }
 
 
-.error-link {
-  color: blue;        
-  text-decoration: underline;  
-  cursor: pointer;    
-  background: transparent; 
+.error-trigger {
+  color: blue;        /* Default link blue color */
+  text-decoration: underline;  /* Underline */
+  cursor: pointer;    /* Pointer cursor on hover */
+  background: transparent; /* Ensure no background color */
+}
+
+/* Optional: change color on hover for better UX */
+.error-trigger:hover,
+.error-trigger:focus {
+  color: darkblue;
+  text-decoration: none;
+}
+/* Auth Form */
+.auth-form {
+  max-width: 400px;
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.auth-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.auth-form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  width: 100%;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-form button:hover {
+  background-color: #004080;
+}
+
+.flash-message {
+  color: red;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-link a {
+  color: blue;
+}
+
+/* Register form */
+/* Form Container */
+#registerForm {
+  max-width: 400px;
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Headline alignment */
+h1 {
+  text-align: center;
+}
+
+/* Flash message */
+.flash-message {
+  color: red;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* Form labels */
+#registerForm label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Form inputs */
+#registerForm input[type="text"],
+#registerForm input[type="email"],
+#registerForm input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Password toggle wrapper */
+.password-toggle-wrapper {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.password-toggle-wrapper input[type="password"],
+.password-toggle-wrapper input[type="text"] {
+  flex: 1;
+}
+
+.password-toggle-wrapper button {
+  padding: 0.5rem;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Submit button */
+#registerForm button[type="submit"] {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  width: 100%;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#registerForm button[type="submit"]:hover {
+  background-color: #004080;
+}
+
+/* Login link */
+p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-link a,
+.manage-links li a {
+  color: blue;
+}
+
+/* Validation Error */
+.error-box {
+  background-color: #ffe0e0;
+  border: 1px solid #cc0000;
+  color: #cc0000;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* more form validation */
+.form-wrapper {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem 2.5rem;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-wrapper h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #444;
+}
+
+form input,
+form select,
+form textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  transition: border-color 0.3s, background-color 0.3s;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+  outline: none;
+}
+
+/* Validation states */
+input.valid,
+textarea.valid,
+select.valid {
+  border-color: #28a745;
+  background-color: #f0fff5;
+}
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+/* Error message text */
+.error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: -0.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Submit button - updated for AAA contrast */
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #003366;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #004080;
+}
+
+/* =====================================
+   Error summary box at the top of the form
+   ===================================== */
+.error-summary {
+  border: 1px solid #cc0000;
+  background-color: #ffe6e6;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  color: #cc0000;
+}
+
+.error-summary ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+/* =====================================
+   Field-level error messages
+   ===================================== */
+.error-message {
+  color: #cc0000;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* =====================================
+   (Optional) Visually highlight invalid inputs
+   ===================================== */
+input.invalid,
+textarea.invalid,
+select.invalid {
+  border-color: #cc0000 !important;
+  background-color: #fff0f0 !important;
+}
+
+input.valid,
+textarea.valid,
+select.valid {
+  border-color: green;
+}
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+  border-color: red;
 }

@@ -4,7 +4,7 @@ SELECT *FROM public.account;
 --Insert query 01
 INSERT INTO account
         (
-     account_firstname,
+         account_firstname,
 		 account_lastname,
 		 account_email,
 		 account_password

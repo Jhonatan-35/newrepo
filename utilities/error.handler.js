@@ -1,3 +1,4 @@
+// utilities/errorHandler.js
 function handleErrors(err, req, res, next) {
     console.error(err.stack);
     const nav = req.app.locals.nav || "";
