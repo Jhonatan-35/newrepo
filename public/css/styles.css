@@ -88,7 +88,7 @@ h1{
 }
 
 .hero-text button{
-  /* background-image: url("../images/site/own_today.png"); */
+  
   border: none;
   height: 30px;
   width: 80px;
@@ -98,22 +98,6 @@ h1{
   cursor: pointer;
   font-size: 9px;
 }
-
-/* .hero-text button{
-  background-image: url("../images/site/own_today.png"); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
-  height: 40px;
-  border: none;
-  height: 40px;
-  width: 110px;
-  color: rgba(255, 255, 255, 0);
-  font-weight: bold;
-  cursor: pointer;
-} */
-
 
 .mid, .upgrade-grid{
   margin-top: 30px;
@@ -161,7 +145,6 @@ footer{
   padding: 10px;
 }
 
-
 @media screen and (min-width: 768px) {
   .hero-text{
   top:300px !important;
@@ -203,7 +186,7 @@ footer{
     background-position: center;  
     background-repeat: repeat;
     padding: 20px 0 20px 0 ;
-    min-height: 100vh; /* Ensures body takes at least full viewport height */
+    min-height: 100vh; 
     margin: 0;
   }
 
@@ -251,8 +234,6 @@ footer{
   }
 }
 
-/* New styles */
-
 .vehicle-detail {
   display: flex;
   flex-direction: row;
@@ -271,8 +252,6 @@ footer{
   min-width: 250px;
 }
 
-
-/* Container becomes a responsive grid */
 #inv-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -281,7 +260,7 @@ footer{
   list-style: none;
 }
 
-/* Each card */
+
 #inv-display li {
   background: #fff;
   border-radius: 0.5rem;
@@ -297,17 +276,16 @@ footer{
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Image at top */
+
 #inv-display li img {
   width: 100%;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-/* Card content */
 #inv-display li .namePrice {
   padding: 1rem;
-  flex: 1;               /* stretch to fill */
+  flex: 1;              
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -324,7 +302,7 @@ footer{
   font-size: 1rem;
 }
 
-/* Make “View details” links easy to click */
+
 #inv-display li .namePrice a {
   text-decoration: none;
   color: inherit;
@@ -332,19 +310,19 @@ footer{
 
 
 .error-trigger {
-  color: blue;        /* Default link blue color */
-  text-decoration: underline;  /* Underline */
-  cursor: pointer;    /* Pointer cursor on hover */
-  background: transparent; /* Ensure no background color */
+  color: blue;        
+  text-decoration: underline;  
+  cursor: pointer;   
+  background: transparent; 
 }
 
-/* Optional: change color on hover for better UX */
+
 .error-trigger:hover,
 .error-trigger:focus {
   color: darkblue;
   text-decoration: none;
 }
-/* Auth Form */
+
 .auth-form {
   max-width: 400px;
   margin: 1rem auto;
@@ -399,8 +377,7 @@ footer{
   color: blue;
 }
 
-/* Register form */
-/* Form Container */
+
 #registerForm {
   max-width: 400px;
   margin: 1rem auto;
@@ -411,26 +388,23 @@ footer{
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Headline alignment */
 h1 {
   text-align: center;
 }
 
-/* Flash message */
 .flash-message {
   color: red;
   text-align: center;
   margin: 1rem 0;
 }
 
-/* Form labels */
+
 #registerForm label {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
 }
 
-/* Form inputs */
 #registerForm input[type="text"],
 #registerForm input[type="email"],
 #registerForm input[type="password"] {
@@ -441,7 +415,6 @@ h1 {
   border: 1px solid #ccc;
 }
 
-/* Password toggle wrapper */
 .password-toggle-wrapper {
   position: relative;
   display: flex;
@@ -462,7 +435,7 @@ h1 {
   cursor: pointer;
 }
 
-/* Submit button */
+
 #registerForm button[type="submit"] {
   margin-top: 1.5rem;
   padding: 0.75rem;
@@ -479,7 +452,7 @@ h1 {
   background-color: #004080;
 }
 
-/* Login link */
+
 p {
   text-align: center;
   margin-top: 1rem;
@@ -490,7 +463,7 @@ p {
   color: blue;
 }
 
-/* Validation Error */
+
 .error-box {
   background-color: #ffe0e0;
   border: 1px solid #cc0000;
@@ -500,7 +473,7 @@ p {
   border-radius: 5px;
 }
 
-/* more form validation */
+
 .form-wrapper {
   max-width: 500px;
   margin: 4rem auto;
@@ -549,7 +522,7 @@ form textarea:focus {
   outline: none;
 }
 
-/* Validation states */
+
 input.valid,
 textarea.valid,
 select.valid {
@@ -564,7 +537,6 @@ select.invalid {
   background-color: #fff5f5;
 }
 
-/* Error message text */
 .error-message {
   color: #dc3545;
   font-size: 0.85rem;
@@ -573,7 +545,6 @@ select.invalid {
   display: block;
 }
 
-/* Submit button - updated for AAA contrast */
 form button {
   width: 100%;
   padding: 0.8rem;
@@ -591,9 +562,6 @@ form button:hover {
   background: #004080;
 }
 
-/* =====================================
-   Error summary box at the top of the form
-   ===================================== */
 .error-summary {
   border: 1px solid #cc0000;
   background-color: #ffe6e6;
@@ -608,9 +576,6 @@ form button:hover {
   padding-left: 1.25rem;
 }
 
-/* =====================================
-   Field-level error messages
-   ===================================== */
 .error-message {
   color: #cc0000;
   font-size: 0.9rem;
@@ -619,9 +584,6 @@ form button:hover {
   display: block;
 }
 
-/* =====================================
-   (Optional) Visually highlight invalid inputs
-   ===================================== */
 input.invalid,
 textarea.invalid,
 select.invalid {
