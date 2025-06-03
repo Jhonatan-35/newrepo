@@ -71,7 +71,9 @@ app.use("/account", accountRoute); // Account routes
  * 404 Handler (File Not Found)
  * Must come after all routes
  *************************/
-
+app.use((req, res, next) => {
+  next({ status: 404, message: "Sorry, we appear to have lost that page." });
+});
 
 /* ***********************
  * General Error Handler (for 500, etc.)
