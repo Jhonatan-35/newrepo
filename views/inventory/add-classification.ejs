@@ -1,0 +1,27 @@
+<div class="container">
+    <h1><%= title %></h1>
+
+    <% if (errors && errors.length) { %>
+      <ul class="error-box">
+        <% errors.forEach(e => { %>
+          <li><%= e.msg %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+
+    <form id="addClassification" action="/inv/add-classification" method="post" novalidate>
+      <label for="classificationName">Classification Name
+        <span class="instruction">(no spaces or special characters)</span>
+      </label>
+      <input
+        type="text"
+        name="classification_name"
+        id="classificationName"
+        required
+        pattern="^[A-Za-z0-9]+$"
+        value="<%= classification_name %>"
+      >
+      <button type="submit">Add Classification</button>
+    </form>
+  </div>
+  <script src="/js/form-validation.js"></script>

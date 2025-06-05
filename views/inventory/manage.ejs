@@ -1,0 +1,24 @@
+div class="container">
+    <h1><%= title %></h1>
+    <% if (message && message.length) { %>
+      <div class="flash-message"><%= message %></div>
+    <% } %>
+    <ul class="manage-links">
+      <li><a href="/inv/add-classification">Add New Classification</a></li>
+      <li><a href="/inv/add-inventory">Add New Vehicle</a></li>
+    </ul>
+
+    <h2>Manage Inventory</h2>
+    <p>Choose a classification to see those vehicles</p>
+
+    
+    <%- classificationSelect %>
+
+ 
+    <table id="inventoryDisplay"></table>
+
+  
+    <noscript>JavaScript must be enabled to use this page.</noscript>
+
+
+  </div>

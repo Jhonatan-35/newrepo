@@ -4,12 +4,12 @@
   <main>
     <h1><%= title %></h1>
 
-    <!-- Flash message display -->
+    
     <% if (notice && notice.length > 0) { %>
     <div class="flash-message"><%= notice[0] %></div>
     <% } %>
 
-    <!-- Server-side validation error display -->
+   
     <% if (errors && errors.length > 0) { %>
     <div class="error-box">
         <ul>
@@ -30,7 +30,7 @@
              value="<%= locals.account_lastname  %>" />
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="account_email" required
+      <input type="email" id="email" name="account_email" required placeholder="Enter a valid email address"
              value="<%= typeof account_email != 'undefined' ? account_email : '' %>" />
 
       <label for="password">Password</label>

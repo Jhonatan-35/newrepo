@@ -6,12 +6,11 @@
   <main>
     <h1><%= title %></h1>
 
-    <!-- Flash message display -->
     <% if (notice && notice.length > 0) { %>
     <div class="flash-message"><%= notice[0] %></div>
     <% } %>
 
-    <!-- Server-side validation error display -->
+    
     <% if (errors && errors.length > 0) { %>
     <div class="error-box">
         <ul>
@@ -22,7 +21,7 @@
     </div>
     <% } %>
 
-    <!-- Login Form -->
+    
     <form action="/account/login" method="POST" class="auth-form">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" required>
