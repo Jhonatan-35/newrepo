@@ -1,4 +1,4 @@
-div class="container">
+ <div class="container">
     <h1><%= title %></h1>
     <% if (message && message.length) { %>
       <div class="flash-message"><%= message %></div>
@@ -11,13 +11,13 @@ div class="container">
     <h2>Manage Inventory</h2>
     <p>Choose a classification to see those vehicles</p>
 
-    
+    <!-- Classification dropdown will be injected here -->
     <%- classificationSelect %>
 
- 
+    <!-- Table to inject inventory data into -->
     <table id="inventoryDisplay"></table>
 
-  
+    <!-- Message if JavaScript is disabled -->
     <noscript>JavaScript must be enabled to use this page.</noscript>
 
 

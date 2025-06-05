@@ -18,7 +18,7 @@ router.post(
   accountController.registerAccount
 )
 
-t
+
 router.post(
   "/login",
   accountValidation.loginRules(),
