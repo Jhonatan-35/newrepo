@@ -12,11 +12,7 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister))
 router.get("/", utilities.handleErrors(accountController.buildAccountDashboard))
 
 
-router.post(
-  "/register",
-  regValidate.registrationRules(), 
-  accountController.registerAccount
-)
+router.post("/register",regValidate.registrationRules(), accountController.registerAccount)
 
 
 router.post(
