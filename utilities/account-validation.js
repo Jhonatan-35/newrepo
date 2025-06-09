@@ -87,7 +87,18 @@ const loginRules = () => {
   ]
 }
 
-
+// const checkLoginData = async (req, res, next) => {
+//   const { account_email } = req.body
+//   let errors = validationResult(req)
+//   if (!errors.isEmpty()) {
+//     return res.render("account/login", {
+//       errors: errors.array(),
+//       account_email,
+//     })
+//   }
+//   next()
+// }
+// Example for checkLoginData
   const checkLoginData = async (req, res, next) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -104,9 +115,76 @@ const loginRules = () => {
     next()
   }
 
+// Add new validation rules
+validate.updateAccountRules = () => {
+  return [
+    body("account_firstname")
+      .trim()
+      .escape()
+      .notEmpty()
+      .withMessage("First name is required."),
+    
+    body("account_lastname")
+      .trim()
+      .escape()
+      .notEmpty()
+      .withMessage("Last name is required."),
+    
+    body("account_email")
+      .trim()
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("Valid email is required.")
+      .custom(async (account_email, { req }) => {
+        const account = await accountModel.getAccountByEmail(account_email);
+        if (account && account.account_id != req.body.account_id) {
+          throw new Error("Email exists. Please use a different email.");
+        }
+      })
+  ];
+};
+
+validate.updatePasswordRules = () => {
+  return [
+    body("account_password")
+      .trim()
+      .notEmpty()
+      .isStrongPassword({
+        minLength: 12,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+      .withMessage("Password does not meet requirements.")
+  ];
+};
+
+// Add validation check middleware
+validate.checkUpdateData = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const accountData = await accountModel.getAccountById(req.body.account_id);
+    return res.render("account/update", {
+      title: "Update Account",
+      accountData,
+      errors: errors.array(),
+    });
+  }
+  next();
+};
+
+// Export new methods
+
+
+
 module.exports = {
   registrationRules: validate.registrationRules,
   checkRegData: validate.checkRegData,
   loginRules,
-  checkLoginData
+  checkLoginData,
+  ...validate,
+  updateAccountRules: validate.updateAccountRules,
+  updatePasswordRules: validate.updatePasswordRules,
+  checkUpdateData: validate.checkUpdateData
 }

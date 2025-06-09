@@ -19,12 +19,18 @@ const utilities = require("./utilities");
 const session = require("express-session");
 const pool = require("./database/");
 const accountRoute = require("./routes/accountRoute");
+const cookieParser = require("cookie-parser")
+const { checkJWT } = require("./utilities/auth");
+app.use(checkJWT);
+
+
 
 // Body‐parser is no longer needed separately—express.json() and express.urlencoded() suffice
 
 /* ***********************
  * Middleware
  *************************/
+app.use(cookieParser())
 app.use(
   session({
     store: new (require("connect-pg-simple")(session))({
@@ -37,6 +43,9 @@ app.use(
     name: "sessionId",
   })
 );
+
+app.use(checkJWT);
+//app.use(utilities.checkJWTToken)
 
 // Express‐message (flash) middleware
 app.use(require("connect-flash")());
