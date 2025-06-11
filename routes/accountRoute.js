@@ -59,9 +59,6 @@ router.post(
   "/login",
   accountValidation.loginRules(),
   accountValidation.checkLoginData,
-  // (req, res) => {
-  //   res.status(200).send('login process')
-  // },
   utilities.handleErrors(accountController.accountLogin)
 )
 

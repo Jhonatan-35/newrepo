@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>
+<main class="manage-roles-main">
+  <h2 class="manage-roles-title">Manage User Roles</h2>
+  <table class="manage-roles-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Current Role</th>
+        <th>Change Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.account_firstname %> <%= user.account_lastname %></td>
+          <td><%= user.account_email %></td>
+          <td><%= user.account_type %></td>
+          <td>
+            <form method="POST" action="/account/update-role">
+              <input type="hidden" name="account_id" value="<%= user.account_id %>">
+              <input type="hidden" name="current_role" value="<%= user.account_type %>">
+              <select name="new_role">
+                <option value="Basic" <%= user.account_type === 'Basic' ? 'selected' : '' %>>Basic</option>
+                <option value="Employee" <%= user.account_type === 'Employee' ? 'selected' : '' %>>Employee</option>
+                <option value="Admin" <%= user.account_type === 'Admin' ? 'selected' : '' %>>Admin</option>
+              </select>
+              <button type="submit">Update</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>

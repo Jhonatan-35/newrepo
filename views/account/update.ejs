@@ -1,0 +1,78 @@
+<%- include('../partials/head') %>
+<body>
+
+  
+  <main>
+    <h1><%= title %></h1>
+
+    <!-- Flash message display -->
+    <% if (message) { %>
+      <div class="flash-message"><%= message %></div>
+    <% } %>
+
+    <!-- Server-side validation error display -->
+    <% if (errors && errors.length > 0) { %>
+      <div class="error-box">
+        <ul>
+          <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <!-- Account Update Form -->
+     <div class="updatenew">
+    <form id="accountUpdateForm" action="/account/update" method="POST">
+      <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+      
+      <label for="account_firstname">First Name:</label>
+      <input type="text" id="account_firstname" name="account_firstname" 
+             value="<%= accountData.account_firstname %>" required>
+      
+      <label for="account_lastname">Last Name:</label>
+      <input type="text" id="account_lastname" name="account_lastname" 
+             value="<%= accountData.account_lastname %>" required>
+      
+      <label for="account_email">Email:</label>
+      <input type="email" id="account_email" name="account_email" 
+             value="<%= accountData.account_email %>" required>
+      
+      <button type="submit">Update Account</button>
+    </form>
+    
+    <!-- Change Password Form -->
+    <form id="passwordUpdateForm" action="/account/update-password" method="POST">
+      <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+      
+      <label for="account_password">New Password:</label>
+      <div class="password-toggle-wrapper">
+        <input type="password" id="account_password" name="account_password" required
+               title="Minimum 12 characters, including a capital letter, number, and special character" 
+               pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+        <button type="button" onclick="togglePassword('account_password')">Show</button>
+      </div>
+      <p>Password must be at least 12 characters with 1 uppercase, 1 lowercase, 1 number, and 1 special character.</p>
+      
+      <button type="submit">Change Password</button>
+    </form>
+    </div>
+  </main>
+  
+
+
+  <script>
+    function togglePassword(fieldId) {
+      const passwordInput = document.getElementById(fieldId);
+      const toggleBtn = event.target;
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleBtn.textContent = "Hide";
+      } else {
+        passwordInput.type = "password";
+        toggleBtn.textContent = "Show";
+      }
+    }
+  </script>
+</body>
+</html>

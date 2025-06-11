@@ -1,4 +1,4 @@
-const pool = require('../database/index.js')
+const pool = require('../database/')
 
 /* ***************************
  *  Get all classification data
@@ -6,7 +6,6 @@ const pool = require('../database/index.js')
 
 async function getClassifications(){
     return await pool.query("SELECT * FROM public.classification ORDER BY classification_name")
-    
 }
 
 
@@ -100,6 +99,93 @@ async function addInventoryItem({
   }
 }
 
+// Get inventory item by inventory ID
+async function getInventoryById(inv_id) {
+  try {
+    const sql = 'SELECT * FROM inventory WHERE inv_id = $1';
+    const result = await pool.query(sql, [inv_id]);
+    return result.rows[0]; // returns object with inventory data
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function updateInventory(
+  inv_id,
+  classification_id,
+  inv_make,
+  inv_model,
+  inv_year,
+  inv_description,
+  inv_image,
+  inv_thumbnail,
+  inv_price,
+  inv_miles,
+  inv_color
+) {
+  try {
+    const sql = `
+      UPDATE inventory
+      SET
+        classification_id = $1,
+        inv_make = $2,
+        inv_model = $3,
+        inv_year = $4,
+        inv_description = $5,
+        inv_image = $6,
+        inv_thumbnail = $7,
+        inv_price = $8,
+        inv_miles = $9,
+        inv_color = $10
+      WHERE inv_id = $11
+      RETURNING *`;
+      
+    const params = [
+      classification_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+      inv_id
+    ];
+    
+    const result = await pool.query(sql, params);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Update error:", error);
+    return null;
+  }
+}
+
+/* ***************************
+ *  Get inventory item by ID
+ * ************************** */
+async function getInventoryItemById(inv_id) {
+  return await pool.query(
+    "SELECT * FROM public.inventory WHERE inv_id = $1",
+    [inv_id]
+  ).then(result => result.rows[0]);
+}
+
+/* ***************************
+ *  Delete Inventory Item
+ * ************************** */
+async function deleteInventoryItem(inv_id) {
+  try {
+    const sql = "DELETE FROM inventory WHERE inv_id = $1";
+    const data = await pool.query(sql, [inv_id]);
+    return data;
+  } catch (error) {
+    console.error("Delete Inventory Error:", error);
+    throw error;
+  }
+}
+
 
 
 module.exports = {
@@ -107,5 +193,9 @@ module.exports = {
     getInventoryByClassificationId,
     getVehicleById,
     addClassification,
-    addInventoryItem
+    addInventoryItem,
+    getInventoryById,
+    updateInventory,
+    deleteInventoryItem,
+    getInventoryItemById
 }

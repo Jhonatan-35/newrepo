@@ -143,7 +143,7 @@ async function buildAccountDashboard(req, res) {
   let nav = await utilities.getNav();
   res.render("account/dashboard", {
     title: "Account Dashboard",
-    nav  //nav here
+    nav  
   });
 }
 
@@ -159,7 +159,7 @@ async function buildUpdateView(req, res) {
   
   res.render("account/update", {
     title: "Update Account",
-    nav,  // Add nav here
+    nav,  
     accountData,
     errors: null,
     message: null

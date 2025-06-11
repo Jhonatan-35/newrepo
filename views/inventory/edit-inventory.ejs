@@ -1,0 +1,114 @@
+<div class="container">
+  <h1><%= title %></h1>
+  
+  <!-- Error display - MATCH ACCOUNT STYLE -->
+  <% if (errors && errors.length > 0) { %>
+    <div class="error-summary">
+      <p>Please fix the following errors:</p>
+      <ul>
+        <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form id="editInventory" action="/inv/update" method="post" novalidate>
+    
+    <!-- Hidden field to send inv_id for update -->
+    <input type="hidden" name="inv_id" value="<%= inv_id %>">
+
+    <label for="classificationList">Classification</label>
+    <%- classificationSelect %>
+
+
+    <label for="invMake">Make<span class="instruction">(min 2 chars)</span></label>
+    <input
+      type="text"
+      name="inv_make"
+      id="invMake"
+      required
+      value="<%= inv_make || '' %>"
+    >
+
+    <label for="invModel">Model<span class="instruction">(min 1 char)</span></label>
+    <input
+      type="text"
+      name="inv_model"
+      id="invModel"
+      required
+      value="<%= inv_model || '' %>"
+    >
+
+    <label for="invYear">Year<span class="instruction">(1900–<%= new Date().getFullYear() %>)</span></label>
+    <input
+      type="number"
+      name="inv_year"
+      id="invYear"
+      required
+      min="1900"
+      max="<%= new Date().getFullYear() %>"
+      value="<%= inv_year || '' %>"
+    >
+
+    <label for="invPrice">Price<span class="instruction">(numeric)</span></label>
+    <input
+      type="number"
+      name="inv_price"
+      id="invPrice"
+      required
+      step="0.01"
+      min="0"
+      value="<%= inv_price || '' %>"
+    >
+
+    <label for="invMiles">Miles<span class="instruction">(integer)</span></label>
+    <input
+      type="number"
+      name="inv_miles"
+      id="invMiles"
+      required
+      min="0"
+      value="<%= inv_miles || '' %>"
+    >
+
+    <label for="invColor">Color</label>
+    <input
+      type="text"
+      name="inv_color"
+      id="invColor"
+      required
+      value="<%= inv_color || '' %>"
+    >
+
+    <label for="invImage">Image Path</label>
+    <input
+      type="text"
+      name="inv_image"
+      id="invImage"
+      required
+      value="<%= inv_image || '' %>"
+    >
+
+    <label for="invThumbnail">Thumbnail Path</label>
+    <input
+      type="text"
+      name="inv_thumbnail"
+      id="invThumbnail"
+      required
+      value="<%= inv_thumbnail || '' %>"
+    >
+
+    <label for="invDescription">Description</label>
+    <textarea
+      name="inv_description"
+      id="invDescription"
+      required
+    ><%= inv_description || '' %></textarea>
+
+    <button type="submit" disabled>Update Vehicle</button>
+  </form>
+</div>
+
+<script src="/js/form-validation.js"></script>
+<script src="/js/inv-update.js"></script>

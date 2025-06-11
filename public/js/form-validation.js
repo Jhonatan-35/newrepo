@@ -1,4 +1,4 @@
- document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("input, textarea, select");
 
     inputs.forEach(input => {
